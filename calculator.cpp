@@ -27,6 +27,21 @@ void displayCourses(int semester){
     }
 }
 
+float calculatSGPA(int semester){
+    float totalCreditsScored = 0.0;
+    float totalCredits = 0.0;
+    if(semester == 1){
+        float sub1 = 3.0, sub2 = 3.0, sub3 = 3.0, sub4 = 4.0, sub5 = 4.0;
+        totalCredits = sub1+sub2+sub3+sub4+sub5;
+        for(int i=0;i<acad.size();i++){
+            if(i<3) totalCreditsScored += (3.0*acad[i]);
+            else totalCreditsScored += (4.0*acad[i]); 
+        }
+    }
+    else cout << "!! ENTER THE CORRECT SEMESTER NUMBER !!";
+    return totalCreditsScored/totalCredits;
+}
+
 int main(){
     this_thread::sleep_for(chrono::seconds(1));
     cout << "\n" << "\n";
@@ -75,8 +90,8 @@ int main(){
         main();
         break;
 
-    case 4:
-        cout << "Code executed Successfully!" << "\n" << "\n";
+    case 4: //display SGPA
+        cout << "SGPA for " << semester << " is : " << calculatSGPA(semester); 
         main();
         break;
 
